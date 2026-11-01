@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sostituzioni sul sito LUTE</title>
+<style>
+  :root {
+    --verde: #1b5e3f; --verde-chiaro: #e8f2ec; --oro: #a8842c; --oro-chiaro: #f8f1df;
+    --carta: #ffffff; --sfondo: #f4f4f2; --bordo: #dcdcd8; --testo: #1a1a1a; --tenue: #4a4a4a;
+    --rosso: #b00020; --rosso-chiaro: #ffd9de; --ok-chiaro: #d6f0de;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--sfondo); color: var(--testo); font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif; font-size: 19px; line-height: 1.5; }
+  .pagina { max-width: 980px; margin: 0 auto; padding: 20px 14px 40px; }
+
+  header { background: linear-gradient(135deg, #1b5e3f 0%, #14492f 100%); color: #fff; border-radius: 16px; padding: 24px 28px; }
+  header .sigla { display: inline-block; font-size: 0.8em; letter-spacing: 2.5px; text-transform: uppercase; color: #f3dfa6; font-weight: 600; padding-bottom: 6px; border-bottom: 2px solid var(--oro); }
+  header h1 { margin: 12px 0 6px; font-size: 1.7em; line-height: 1.2; }
+  header p { margin: 0; color: #e6efe9; font-size: 0.95em; }
+
+  .riquadro { background: var(--carta); border: 1px solid var(--bordo); border-radius: 14px; padding: 18px 22px; margin-top: 16px; }
+  .riquadro h2 { margin: 0 0 10px; font-size: 1.15em; color: var(--verde); }
+  .cambio { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; }
+  .cambio .box { padding: 12px 16px; border-radius: 12px; font-weight: 600; text-align: center; }
+  .cambio .prima { background: var(--rosso-chiaro); border: 2px solid var(--rosso); }
+  .cambio .dopo { background: var(--ok-chiaro); border: 2px solid var(--verde); }
+  .cambio .freccia { font-size: 1.6em; color: var(--oro); font-weight: 700; }
+  .numeri { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+  .numeri div { flex: 1 1 150px; background: var(--oro-chiaro); border: 2px solid var(--oro); border-radius: 12px; padding: 10px 14px; text-align: center; }
+  .numeri b { display: block; font-size: 1.8em; color: var(--verde); line-height: 1.2; }
+
+  .barra { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 22px 0 10px; }
+  .barra h2 { margin: 0; font-size: 1.25em; color: var(--verde); flex: 1 1 200px; }
+  button { font-family: inherit; font-size: 0.9em; font-weight: 700; padding: 9px 18px; border-radius: 10px; border: 2px solid var(--verde); background: var(--verde); color: #fff; cursor: pointer; }
+  button.chiaro { background: #fff; color: var(--verde); }
+  button:focus-visible, input:focus-visible, a:focus-visible { outline: 4px solid var(--oro); outline-offset: 2px; }
+
+  .voce { display: grid; grid-template-columns: 44px 1fr auto; gap: 14px; align-items: start; background: var(--carta); border: 1px solid var(--bordo); border-left: 6px solid var(--oro); border-radius: 14px; padding: 14px 18px; margin-bottom: 12px; }
+  .voce.fatta { border-left-color: var(--verde); background: #f3faf5; }
+  .num { width: 40px; height: 40px; border-radius: 50%; background: var(--verde); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .voce h3 { margin: 0 0 2px; font-size: 1.05em; color: var(--verde); }
+  .voce h3 a { color: var(--verde); }
+  .dove { margin: 0 0 8px; color: var(--tenue); font-size: 0.92em; }
+  .frase { margin: 0; font-size: 0.95em; }
+  .frase s { background: var(--rosso-chiaro); color: var(--rosso); text-decoration-thickness: 2px; padding: 0 4px; border-radius: 4px; }
+  .frase mark { background: var(--ok-chiaro); color: #0d4a2b; font-weight: 700; padding: 0 4px; border-radius: 4px; }
+  .controllo { display: flex; align-items: center; gap: 8px; font-size: 0.9em; font-weight: 600; white-space: nowrap; cursor: pointer; }
+  .controllo input { width: 26px; height: 26px; accent-color: var(--verde); cursor: pointer; }
+
+  .note ul { margin: 0; padding-left: 1.2em; }
+  .note li { margin: 6px 0; }
+  footer { margin-top: 22px; text-align: center; color: var(--tenue); font-size: 0.85em; }
+
+  @media (max-width: 640px) {
+    body { font-size: 17px; }
+    header { padding: 20px 16px; }
+    .cambio { grid-template-columns: 1fr; }
+    .cambio .freccia { text-align: center; transform: rotate(90deg); }
+    .voce { grid-template-columns: 40px 1fr; }
+    .controllo { grid-column: 2; }
+  }
+  @media print {
+    body { background: #fff; font-size: 12pt; }
+    header { background: #1b5e3f !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .barra button, .controllo { display: none; }
+    .voce, .riquadro { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+<header>
+  <div class="sigla">LUTE Milazzo · Sito lutemilazzo.org</div>
+  <h1>Elenco delle sostituzioni nel testo</h1>
+  <p>Modifica eseguita il 1 novembre 2026, preparata da Filippo per Claudio.</p>
+</header>
+
+<section class="riquadro">
+  <h2>Che cosa è stato cambiato</h2>
+  <div class="cambio">
+    <div class="box prima">Libera Università della Terza Età</div>
+    <div class="freccia" aria-hidden="true">➜</div>
+    <div class="box dopo">Libera Università per la Terza Età</div>
+  </div>
+  <div class="numeri">
+    <div><b id="nTotale">13</b>punti modificati</div>
+    <div><b id="nPagine">11</b>pagine del sito</div>
+    <div><b id="nControllate">0</b>controllati da te</div>
+  </div>
+</section>
+
+<div class="barra">
+  <h2>Dove è stata fatta la sostituzione</h2>
+  <button type="button" class="chiaro" id="soloDaFare">Mostra solo da controllare</button>
+  <button type="button" id="stampa">Stampa</button>
+</div>
+
+<div id="elenco"></div>
+
+<section class="riquadro note">
+  <h2>Da sapere</h2>
+  <ul>
+    <li>Prima di cambiare il testo è stato fatto un backup del database del sito (1 novembre 2026, ore 18:37).</li>
+    <li>Ogni pagina è stata riletta dopo il salvataggio: è identica a prima, tranne la frase cambiata. WordPress conserva comunque la versione precedente di ogni pagina, da cui si può tornare indietro.</li>
+    <li>Nelle pagine, nei menu e nei widget non è rimasta nessuna «Libera Università della Terza Età».</li>
+    <li><b>Non modificati</b>: i nomi dei corsi che contengono «terza età», per esempio «Psicologia della terza età».</li>
+    <li><b>Non modificato</b>: il titolo interno di una sola immagine nella libreria multimediale, scritto in minuscolo («Libera università della terza età»). Non si legge sul sito e il suo indirizzo contiene quelle parole.</li>
+    <li>Nella pagina di Furnari era già presente una volta la forma corretta «Libera Università per la Terza Età»: non è stata toccata.</li>
+  </ul>
+</section>
+
+<footer>Spunta «Controllata» accanto a ogni voce man mano che verifichi: le spunte restano salvate su questo computer.</footer>
+
+</div>
+
+<script>
+  var VOCI = [
+    { pagina: 'Chi siamo', url: 'https://www.lutemilazzo.org/chi-siamo-2/', dove: 'In alto, sotto il titolo «LUTE Milazzo», sopra la frase «Imparare non ha età»', prima: '', dopo: '' },
+    { pagina: 'Chi siamo', url: 'https://www.lutemilazzo.org/chi-siamo-2/', dove: 'Nel testo di presentazione: «La LUTE – … di Milazzo è un\'associazione di promozione sociale…»', prima: '', dopo: '' },
+    { pagina: 'Chi siamo', url: 'https://www.lutemilazzo.org/chi-siamo-2/', dove: 'Nella riga «LUTE Milazzo · Crescere insieme, sempre.», prima di «affiliata Auser Nazionale»', prima: '', dopo: '' },
+    { pagina: 'Dove siamo', url: 'https://www.lutemilazzo.org/dove-siamo/', dove: 'Riga sotto il titolo: «LUTE Milazzo · …», sopra «Sede delle lezioni»', prima: '', dopo: '' },
+    { pagina: 'Sede di Pace del Mela', url: 'https://www.lutemilazzo.org/pace-del-mela/', dove: 'Riga sotto il titolo, dopo «sede di Pace del Mela»', prima: '', dopo: '' },
+    { pagina: 'Sede di Spadafora', url: 'https://www.lutemilazzo.org/spadafora/', dove: 'Riga sotto il titolo, dopo «sede di Spadafora»', prima: '', dopo: '' },
+    { pagina: 'Sede di Santa Lucia del Mela', url: 'https://www.lutemilazzo.org/santa-lucia-del-mela/', dove: 'Riga sotto il titolo, dopo «sede di Santa Lucia del Mela»', prima: '', dopo: '' },
+    { pagina: 'Sede di Torregrotta', url: 'https://www.lutemilazzo.org/torregrotta/', dove: 'Riga sotto il titolo, dopo «sede di Torregrotta»', prima: '', dopo: '' },
+    { pagina: 'Sede di Villafranca Tirrena', url: 'https://www.lutemilazzo.org/villafranca-tirrena/', dove: 'Riga sotto il titolo, dopo «sede di Villafranca Tirrena»', prima: '', dopo: '' },
+    { pagina: 'Sede di Messina', url: 'https://www.lutemilazzo.org/messina/', dove: 'Riga sotto il titolo, dopo «sede di Messina»', prima: '', dopo: '' },
+    { pagina: 'Sede di Furnari', url: 'https://www.lutemilazzo.org/furnari/', dove: 'Riga sotto il titolo, dopo «sede di Furnari»', prima: '', dopo: '' },
+    { pagina: 'Sede di Santo Stefano di Camastra', url: 'https://www.lutemilazzo.org/santo-stefano-di-camastra/', dove: 'Riga sotto il titolo, dopo «sede di Santo Stefano di Camastra»', prima: '', dopo: '' },
+    { pagina: 'Sede di Venetico', url: 'https://www.lutemilazzo.org/venetico/', dove: 'Riga sotto il titolo, dopo «sede di Venetico»', prima: '', dopo: '' }
+  ];
+  var PRIMA = 'Libera Università della Terza Età';
+  var DOPO = 'Libera Università per la Terza Età';
+  var CHIAVE = 'lute_sostituzioni_terza_eta_v1';
+  var fatte = {};
+  var soloDaFare = false;
+
+  try { fatte = JSON.parse(localStorage.getItem(CHIAVE) || '{}') || {}; } catch (e) { fatte = {}; }
+  function salva() { try { localStorage.setItem(CHIAVE, JSON.stringify(fatte)); } catch (e) {} }
+
+  function disegna() {
+    var el = document.getElementById('elenco');
+    el.innerHTML = '';
+    var controllate = 0;
+    VOCI.forEach(function (v, i) {
+      var ok = !!fatte[i];
+      if (ok) controllate++;
+      if (soloDaFare && ok) return;
+      var d = document.createElement('div');
+      d.className = 'voce' + (ok ? ' fatta' : '');
+
+      var n = document.createElement('div');
+      n.className = 'num';
+      n.textContent = i + 1;
+
+      var corpo = document.createElement('div');
+      var h = document.createElement('h3');
+      var a = document.createElement('a');
+      a.textContent = v.pagina;
+      a.setAttribute('href', v.url);
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener');
+      h.appendChild(a);
+      var dove = document.createElement('p');
+      dove.className = 'dove';
+      dove.textContent = v.dove;
+      var fr = document.createElement('p');
+      fr.className = 'frase';
+      var s = document.createElement('s');
+      s.textContent = PRIMA;
+      var m = document.createElement('mark');
+      m.textContent = DOPO;
+      fr.appendChild(s);
+      fr.appendChild(document.createTextNode('  ➜  '));
+      fr.appendChild(m);
+      corpo.appendChild(h);
+      corpo.appendChild(dove);
+      corpo.appendChild(fr);
+
+      var lab = document.createElement('label');
+      lab.className = 'controllo';
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = ok;
+      cb.addEventListener('change', function () {
+        if (cb.checked) { fatte[i] = true; } else { delete fatte[i]; }
+        salva();
+        disegna();
+      });
+      lab.appendChild(cb);
+      lab.appendChild(document.createTextNode('Controllata'));
+
+      d.appendChild(n);
+      d.appendChild(corpo);
+      d.appendChild(lab);
+      el.appendChild(d);
+    });
+    document.getElementById('nControllate').textContent = controllate;
+    document.getElementById('nTotale').textContent = VOCI.length;
+    var pagine = {};
+    VOCI.forEach(function (v) { pagine[v.url] = 1; });
+    document.getElementById('nPagine').textContent = Object.keys(pagine).length;
+    document.getElementById('soloDaFare').textContent = soloDaFare ? 'Mostra tutte' : 'Mostra solo da controllare';
+  }
+
+  document.getElementById('soloDaFare').addEventListener('click', function () { soloDaFare = !soloDaFare; disegna(); });
+  document.getElementById('stampa').addEventListener('click', function () { window.print(); });
+  disegna();
+</script>
+</body>
+</html>
